@@ -19,8 +19,22 @@ public class Query {
 
         // 5 - Sonuçları al
         while (resultSet.next()) {
+
+            // index kullanarak
             System.out.println(resultSet.getInt(1) + " " + resultSet.getString(2));
+
+            //columnLabel kullanarak
+            System.out.printf("%d %S\n", resultSet.getInt("id"), resultSet.getString("student_name"));
+
+            System.out.println("--------------");
+
         }
+
+        // 6 - Kapatma
+
+        resultSet.close();
+        statement.close();
+        connection.close();
 
     }
 }
